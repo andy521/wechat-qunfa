@@ -7,7 +7,7 @@ var path = require('path')
 var express = require('express')
 var app =  express.createServer();
 var DIY = require('./diy.js')
-var async = require('./async')
+var async = require('async')
 
 app.use(express.static(path.join(__dirname, '')));
 wechat.start();
