@@ -82,14 +82,19 @@ wechat.on('text-message', function(msg) {
         console.log('processing ',one.RemarkName);
         name += ' | ' + one.RemarkName;
 
-        //console.log(DIY.content(one),one.UserName);callback();
-        wechat.sendMsg(DIY.content(one),one.UserName,callback);
+        console.log(DIY.content(one),one.UserName);callback();
+        //wechat.sendMsg(DIY.content(one),one.UserName,callback);
       },function(err){
         if(err)console.log(err);
-      
       })
 
+  }else if('friend'===msg.Content){
+    console.log('command friend recognize');
+    var myfriends = wechat.getFriendList();
+    console.log('myfriend',myfriends);
+    console.log('friend number:',myfriends.length);
   }
+
 })
 
 wechat.on('picture-message', function(msg) {
